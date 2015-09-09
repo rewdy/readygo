@@ -4,12 +4,12 @@ This is a simple group of files to be used for starting other projects.
 
 ## Instructions
 
-1. Clone the repo
+1. Clone the repo. Try `git clone https://github.com/rewdy/readygo.git yourFolderNameHere`.
 2. Run the prepare.sh file from the command line. This will...
- * It will run `npm install` to pull in the node modules that are used for the setup
- * It will remove the .git folder to unlink the files from this repo
- * Finally, it will remove the prepare.sh file and this readme file so that you'll have a clean setup
-3. There is no 3
+ * Run `npm install` to pull in the node modules that are used for the setup
+ * Remove the .git folder to unlink the files from this repo
+ * Remove the prepare.sh file and this readme file so that you'll have a clean setup
+3. You're done. Have fun.
 
 ## Questions/comments
 
