@@ -2,7 +2,7 @@ read -p "Running this script will remove all git references to ReadyGo and will 
 case ${answer:0:1} in
     y|Y )
         echo -e 'Okay. Running commands...\n'
-        echo '\n-------\nInstalling node modules...'
+        echo -e '\n-------\nInstalling node modules...'
         npm install
         echo -e '\n-------\nRemoving git references...'
         rm -rf .git
