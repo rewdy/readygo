@@ -3,11 +3,42 @@
  * Your Project Stylesheet
 */
 
-$accent: #649530;
-$link-color: $accent;
-$link-hover: #000;
+// VARIABLES
+// Type
+$font-size:18px;
+$font-small:0.8em;
+$font-large:1.2em;
+$font-family:sans-serif;
+$alt-font:$font-family; // this is for an alternative font
+$font-weight-light:300;
+$font-weight-normal:400;
+$font-weight-bold:600;
+$font-scale:1.5;
+$line-height:$font-scale + em;
 
+// Colors
+$page-background:#fff;
+$footer-background:#e6e6e6;
+
+$text-color:#222;
+$text-light:#999;
+
+$accent:#3b81f7;
+$pop:#ff9966;
+$link-color:$accent;
+$link-hover:#000;
+
+$line-color: #ddd;
+$heavy-line-color: #999;
+$screen: #e6e6e6;
+
+// Mixins
 @import "modules/_mixins";
+
+// Core
 @import "modules/_core";
 
+// Type
 // @import "modules/_type";
+
+
