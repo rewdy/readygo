@@ -11,28 +11,30 @@ module.exports = function(grunt) {
         }
       }
     },
-    autoprefixer: {
+    postcss: {
       options: {
-        browsers: ['last 2 versions', '> 2% in US']
+        processors: [
+          require('autoprefixer')({browsers: '> 5% in US'}),
+          require('cssnano')()
+        ]
       },
-      single_file: {
-        src: 'css/style.css',
-        dest: 'css/style.processed.css'
+      dist: {
+        src: 'css/*.css'
       }
     },
     watch: {
       files: ['scss/**/*.scss'],
       tasks: [
         'sass',
-        'autoprefixer'
+        'postcss'
       ]
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['sass', 'autoprefixer']);
+  grunt.registerTask('default', ['sass', 'postcss']);
 
 }
