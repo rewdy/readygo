@@ -9,6 +9,8 @@ case ${answer:0:1} in
         echo -e '\n-------\nFinal cleanup: removing last files...'
         rm readme.md
         rm prepare.sh
+        echo -e '\n-------\nGrunting...'
+        grunt
         echo -e '\n-------\nDone.'
     ;;
     * )
