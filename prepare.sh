@@ -2,16 +2,16 @@ read -p "Running this script will remove all git references to ReadyGo and will 
 case ${answer:0:1} in
     y|Y )
         echo -e 'Okay. Running commands...\n'
-        echo -e '\n-------\nInstalling node modules...'
+        echo -e '\nInstalling node modules...\n-------'
         npm install
-        echo -e '\n-------\nRemoving git references...'
+        echo -e '\nRemoving git references...\n-------'
         rm -rf .git
-        echo -e '\n-------\nFinal cleanup: removing last files...'
+        echo -e '\nFinal cleanup: removing last files...\n-------'
         rm readme.md
         rm prepare.sh
-        echo -e '\n-------\nGrunting...'
+        echo -e '\nGrunting...\n-------'
         grunt
-        echo -e '\n-------\nDone.'
+        echo -e '\nDone. 🎉\n'
     ;;
     * )
         echo 'Alright. Not doing anything...'
