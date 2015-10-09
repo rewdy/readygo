@@ -11,6 +11,29 @@ This is a simple group of files to be used for starting other projects.
  * Remove the prepare.sh file and this readme file so that you'll have a clean setup
 3. You're done. Have fun.
 
+## Power User tip
+You can add this bit to your .bash_profile script to make a `readygo` command to use in Terminal.
+
+```
+readygo() {
+	git clone https://github.com/rewdy/readygo.git $1
+	if [ -z ${1+x} ]
+	then
+		cd readygo
+		./prepare.sh
+	else
+		cd $1
+		./prepare.sh
+	fi
+}
+```
+
+After you have added the above function you can use the following syntax to start: `readygo project_folder`
+
+Doing so will clone the readygo project into your project directory, cd into your newly created project, and run the setup scripts.
+
+After adding the above, don't forget to source ~/.bash_profile or create a new terminal session for the function to be found.
+
 ## Questions/comments
 
 [Tweet me...](http://twitter.com/rewdy)
