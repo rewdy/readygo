@@ -5,8 +5,11 @@
 
 // VARIABLES
 // Layout
+$grid-columns:12;
+$grid-gutter:3em;
 $breakpoint-sm:640px;
 $breakpoint-md:1024px;
+$breakpoint-lg:1460px;
 
 // Type
 $font-size:18px;
@@ -42,7 +45,14 @@ $screen: #e6e6e6;
 // Core
 @import "modules/_core";
 
+// Layout
+// @import "modules/_layout";
+
 // Type
 // @import "modules/_type";
 
+// Forms
+// @import "modules/_forms";
 
+// Animations
+// @import "modules/_animations";

@@ -1,0 +1,210 @@
+/*	-----
+	Forms
+*/
+
+// basic form item container
+.form-item,
+.form-item fieldset {
+	margin:0 0 1em 0;
+}
+
+// basic fieldsets
+fieldset {
+	margin:0 0 $line-height 0;
+	padding:1em 1.25em 1em 1.25em;
+	border:1px solid $line-color;
+	min-width:0;
+	p {
+		margin-bottom:1em;
+	}
+}
+legend {
+	float:left;
+	width:100%;
+	padding:0.5em 1.25em;
+	position:relative;
+	top:-1em;
+	left:-1.25em;
+	font-family:$alt-font;
+	font-weight:$font-weight-bold;
+	background-color:$screen;
+	box-sizing:content-box;
+	+ * {
+		margin-top:2.5em!important;
+	}
+}
+
+
+// standard labels, legends for checkbox and radio arrays
+label,
+.form-item fieldset legend,
+fieldset.select legend {
+	display:block;
+	font-family:$alt-font;
+	font-weight:$font-weight-bold;
+}
+
+// grouped content for checkboxes
+.form-item fieldset,
+fieldset fieldset,
+fieldset.select {
+	margin:0;
+	padding:0;
+	border:0 none;
+	label {
+		display:block;
+		font-weight:$font-weight-normal;
+		cursor:pointer;
+	}
+	&.inline label {
+		display:inline;
+		margin-right:1em;
+	}
+}
+
+// standard input help
+.form-item .input-help,
+.form-item .help {
+	font-size:0.9em;
+	font-style:italic;
+}
+
+// Form elements
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+textarea,
+select {
+	max-width:100%;
+	font-size:1em;
+	font-family:$font-family;
+	padding:0.4em;
+	border:1px solid $line-color;
+	outline: none;
+	&:focus {
+		border-color: $heavy-line-color;
+	}
+}
+
+
+// Element specifics
+//
+// Set default size for standard elements
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=range] {
+	width: 24em;
+}
+
+// Set width to auto if a size is set
+input[size] {
+	width:auto;
+}
+
+// Clean up selects
+select {
+	border-radius:0;
+	min-width:12em;
+}
+
+// Allow mutliselects to have automatic heights
+select[multiple],
+select[size] {
+	height:auto;
+}
+
+input[type=file] {
+	display:block;
+}
+
+input[type=range] {
+	display:block;
+}
+
+input[type=color] {
+	width:12em;
+	height:3em;
+}
+
+// Buttons
+//
+//
+button,
+a.button,
+input[type=submit],
+input[type=button],
+input[type=reset] {
+	display:inline-block;
+	padding:0.5em 1em 0.4em;
+	border:0 none;
+	background:$accent;
+	font-family:$alt-font;
+	font-weight:$font-weight-bold;
+	font-size:1em;
+	line-height:1.5em;
+	color:#fff;
+	cursor:pointer;
+	box-shadow:0 0.15em 0.1em fade-out($text-color, 0.8);
+	@include transition(all);
+	&:hover {
+		// background-color:darken($accent, 7%);
+		box-shadow:0 0.25em 0.1em fade-out($text-color, 0.8);
+	}
+	&:active {
+		box-shadow:0 0 0.1em fade-out($text-color, 0.8);
+	}
+	&:focus {
+		outline:none;
+	}
+}
+button.reset,
+a.button.reset,
+input[type=reset] {
+	background-color:$screen;
+	color:$accent;
+}
+
+a.button,
+button {
+	@extend .ripple;
+}
+
+// some classes for variations
+div.submit {
+	padding-top:1em;
+	border-top:1px solid $line-color;
+}
+input.narrow {
+	width:10em;
+}
+input.long {
+	width:30em;
+}
+input.full {
+	width:100%;
+}
+
+// media specifics
+@media only screen and (max-width: $breakpoint-sm) {
+	input[type=text],
+	input[type=email],
+	input[type=number],
+	input[type=password],
+	input.long {
+		width:100%;
+	}
+	input.narrow {
+		width:45%;
+	}
+}

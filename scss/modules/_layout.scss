@@ -1,0 +1,102 @@
+/*	-----------------------
+	Layout (Grid and other)
+*/
+
+@mixin column($width) {
+	float:left;
+	padding:($grid-gutter/2);
+	width:$width;
+}
+@mixin resetColumn {
+	float:none;
+	width:auto;
+}
+
+.grid:after,
+.row:after {
+	@include clearfixed;
+}
+
+// Universal grid
+@for $i from 1 through $grid-columns {
+	.g#{$i} {
+		@include column(percentage($i/$grid-columns));
+	}
+	// @for $i from 1 through $grid-columns {
+	// 	.push#{$i} {
+	// 		position:relative;
+	// 		left:percentage($i/$grid-columns);
+	// 	}
+	// }
+	// @for $i from 1 through $grid-columns {
+	// 	.pull#{$i} {
+	// 		position:relative;
+	// 		left:-(percentage($i/$grid-columns));
+	// 	}
+	// }
+}
+// Reset universal grid at small res
+@media only screen and (max-width:$breakpoint-sm) {
+	%greset {
+		@include resetColumn;
+	}
+	@for $i from 1 through $grid-columns {
+		.g#{$i} {
+			@extend %greset;
+		}
+	}
+}
+
+// Large grid
+@media only screen and (min-width: $breakpoint-md) {
+	@for $i from 1 through $grid-columns {
+		.gl#{$i} {
+			@include column(percentage($i/$grid-columns));
+		}
+	}
+}
+
+// Medium grid
+@media only screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+	@for $i from 1 through $grid-columns {
+		.gm#{$i} {
+			@include column(percentage($i/$grid-columns));
+		}
+	}
+}
+
+// Small grid
+@media only screen and (max-width: $breakpoint-sm) {
+	@for $i from 1 through $grid-columns {
+		.gs#{$i} {
+			@include column(percentage($i/$grid-columns));
+		}
+	}
+}
+
+// Mods
+.xp {
+	padding:0;
+}
+.p {
+	padding:($grid-gutter/2);
+}
+.gc {
+	clear:left;
+	float:none;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+// Non-grid layout
+.listed {
+	margin-bottom:($font-scale * 2) + em;
+}
+
+/* Utility */
+.clearfix:after {
+	@include clearfixed;
+}
+.clear {
+	clear:both;
+}
