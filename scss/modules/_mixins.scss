@@ -11,6 +11,15 @@
 	transition:$els $duration $easing;
 }
 
+@mixin accessible-hide() {
+	position:absolute;
+	top:0;
+	left:0;
+	width:0;
+	height:0;
+	overflow:hidden;
+}
+
 @function contrasting-text($color) {
 	@if (lightness($color) > 50%) {
 		@return #000; // black for light backgrounds
