@@ -1,4 +1,4 @@
-/*	-------------------------- 
+/*	--------------------------
 	Type and other core styles
 */
 
@@ -174,8 +174,8 @@ small,
 	font-size:$font-small;
 }
 
-big, 
-.large, 
+big,
+.large,
 .big {
 	font-size:$font-large;
 }
@@ -191,7 +191,7 @@ figure.right {
 	float:right;
 	margin:0 0 1em 1em;
 }
-figure.left, 
+figure.left,
 figure.right {
 	+ * {
 		clear:none;
@@ -202,7 +202,7 @@ figure.right {
 		float:none;
 		margin:0 0 1em 0;
 	}
-	figure.left, 
+	figure.left,
 	figure.right {
 		float:left;
 		+ * {
@@ -211,7 +211,7 @@ figure.right {
 	}
 }
 
-/* Special Styles */
+// Special Styles
 .attn {
 	margin-bottom:$font-scale + rem;
 	font-size:$font-large;
@@ -224,4 +224,18 @@ figure.right {
 	line-height:$line-height;
 	font-style:italic;
 	color:$text-light;
+}
+
+// Text Alignment
+.text-center {
+	text-align:center;
+}
+.text-left {
+	text-align:left;
+}
+.text-right {
+	text-align:right;
+}
+.text-justify {
+	text-align:justify;
 }
