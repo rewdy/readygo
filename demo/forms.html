@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Revvr Demo</title>
+
+		<link rel="stylesheet" href="../css/style.processed.css">
+		<style type="text/css">
+			/* Demo-specific styles */
+			h2.demo-heading {
+				font-size:3em;
+				font-weight:900;
+				letter-spacing:-0.03em;
+			}
+			.demo-item {
+				clear:both;
+				margin:1.5em 0;
+				padding:1rem;
+				border:1px solid #666;
+			}
+			.demo-item:after {
+				content:" ";
+				display:block;
+				clear:both;
+				height:0;
+				overflow:hidden;
+			}
+			.styleguide-heading {
+				margin:0 0 1.5em -1rem;
+				padding:0.2em 1rem;
+				background-color:#222;
+				font-size:1.2em;
+				color:#ddd;
+				font-weight:200;
+				float:left;
+			}
+			.styleguide-heading + * {
+				clear:left;
+			}
+		</style>
+
+		<!-- <script src="js/script.js"></script> -->
+
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5">
+		
+	</head>
+	<body>
+		
+		<div class="g12">
+			<h1>Revvr Styleguide</h1>
+			<p class="sub-head">Here is what it looks like.</p>
+		</div>
+		<div id="demos" class="g12">
+			
+			<h2 class="demo-heading">Form Elements</h2>
+			
+			<div class="demo-item multi">
+				<form method="post" action="">
+					<fieldset>
+						<legend>Fieldset</legend>
+						<p>This is a fieldset. It has fields in it.</p>
+						<div class="form-item">
+							<label for="ex_text">Text field</label>
+							<div class="input-holder">
+								<input type="text" name="ex_text" value="text field">
+								<div class="input-help">This is a basic text input.</div>
+							</div>
+						</div>
+						<div class="form-item">
+							<label for="ex_pw">Password field</label>
+							<div class="input-holder">
+								<input type="password" name="ex_pw" value="password">
+								<div class="input-help">This is a basic password input.</div>
+							</div>
+						</div>
+						<div class="form-item">
+							<label for="ex_num">Number field</label>
+							<div class="input-holder">
+								<input type="number" name="ex_num" value="4">
+								<div class="input-help">This is a basic number input.</div>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Another Fieldset</legend>
+						<div class="form-item">
+							<label for="ex_select">Select list</label>
+							<div class="input-holder">
+								<select name="ex_select">
+									<option>- Select -</option>
+									<option value="red">Red</option>
+									<option value="orange">Orange</option>
+									<option value="yellow">Yellow</option>
+									<option value="green">Green</option>
+									<option value="blue">Blue</option>
+									<option value="indigo">Indigo</option>
+									<option value="violet">Violet</option>
+								</select>
+								<div class="input-help">Look at the nice colors.</div>
+							</div>
+						</div>
+						<div class="form-item">
+							<label for="ex_multiselect">Multi-select list</label>
+							<div class="input-holder">
+								<select name="ex_multiselect" multiple="multiple">
+									<option value="red">Red</option>
+									<option value="orange">Orange</option>
+									<option value="yellow">Yellow</option>
+									<option value="green">Green</option>
+									<option value="blue">Blue</option>
+									<option value="indigo">Indigo</option>
+									<option value="violet">Violet</option>
+								</select>
+								<div class="input-help">Look at the nice colors.</div>
+							</div>
+						</div>
+						<div class="form-item">
+							<label for="ex_checkboxes_1">Checkboxes</label>
+							<div class="input-holder">
+								<fieldset>
+									<label><input name="ex_checkboxes_1" type="checkbox" value="beef"> Beef</label>
+									<label><input name="ex_checkboxes_1" type="checkbox" value="chicken"> Chicken</label>
+									<label><input name="ex_checkboxes_1" type="checkbox" value="pork"> Pork</label>
+									<label><input name="ex_checkboxes_1" type="checkbox" value="lamb"> Lamb</label>
+								</fieldset>
+								<div class="input-help">Select some meats.</div>
+							</div>
+						</div>
+						<div class="form-item">
+							<label for="ex_radios_1">Radio buttons</label>
+							<div class="input-holder">
+								<fieldset>
+									<label><input name="ex_radios_1" type="radio" value="beef"> Beef</label>
+									<label><input name="ex_radios_1" type="radio" value="chicken"> Chicken</label>
+									<label><input name="ex_radios_1" type="radio" value="pork"> Pork</label>
+									<label><input name="ex_radios_1" type="radio" value="lamb"> Lamb</label>
+								</fieldset>
+								<div class="input-help">Select a meat.</div>
+							</div>
+						</div>
+						<div class="form-item">
+							<label for="ex_checkboxes_2">Checkboxes, inline</label>
+							<div class="input-holder">
+								<fieldset class="inline">
+									<label><input name="ex_checkboxes_2" type="checkbox" value="beef"> Beef</label>
+									<label><input name="ex_checkboxes_2" type="checkbox" value="chicken"> Chicken</label>
+									<label><input name="ex_checkboxes_2" type="checkbox" value="pork"> Pork</label>
+									<label><input name="ex_checkboxes_2" type="checkbox" value="lamb"> Lamb</label>
+								</fieldset>
+								<div class="input-help">Select some meats.</div>
+							</div>
+						</div>
+						<div class="form-item">
+							<label for="ex_radios_2">Radio buttons, inline</label>
+							<div class="input-holder">
+								<fieldset class="inline">
+									<label><input name="ex_radios_2" type="radio" value="beef"> Beef</label>
+									<label><input name="ex_radios_2" type="radio" value="chicken"> Chicken</label>
+									<label><input name="ex_radios_2" type="radio" value="pork"> Pork</label>
+									<label><input name="ex_radios_2" type="radio" value="lamb"> Lamb</label>
+								</fieldset>
+								<div class="input-help">Select a meat.</div>
+							</div>
+						</div>
+					</fieldset>
+					<div class="form-item actions">
+						<div class="input-holder">
+							<input type="submit" value="Submit" class="button"> 
+							<input type="reset" value="Clear" class="button reset">
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- end demo items -->
+
+
+		</div> <!-- close .g9 -->
+	</body>
+</html>
