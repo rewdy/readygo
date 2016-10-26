@@ -74,6 +74,35 @@
 	}
 }
 
+// Table grid
+@media only screen and (min-width: $breakpoint-sm) {
+	.grid-table {
+		display:table;
+		width:100%;
+		table-layout:fixed;
+		&:after {
+			@include clearfixed;
+		}
+		%grid-cell {
+			float:none;
+			display:table-cell;
+			vertical-align:top;
+		}
+		@for $i from 1 through $grid-columns {
+			.g#{$i} {
+				@extend %grid-cell;
+			}
+		}
+		.grid-align-middle {
+			vertical-align:middle;
+		}
+		.grid-align-bottom {
+			vertical-align:bottom;
+		}
+	}
+}
+
+
 // Mods
 .xp {
 	padding:0;
