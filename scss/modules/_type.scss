@@ -47,6 +47,7 @@ p, ul, ol, dl, blockquote, pre, table, address, figure {
 	margin:0 0 $line-height 0;
 }
 
+// Lists
 ul,
 ol {
 	li {
@@ -81,46 +82,95 @@ ol {
 			padding:0;
 		}
 	}
+	&.button-list {
+		&.text-center {
+			margin:0 auto $line-height auto;
+		}
+		margin:0 0 $line-height 0;
+		display:table;
+		table-layout:fixed;
+		li {
+			display:table-row;
+			list-style:none;
+			// The <a> button styles are in _forms
+		}
+	}
+}
+
+// definition lists
+dt {
+	font-weight:$font-weight-bold;
+}
+table dt {
+	float:left;
+	min-width:120px;
+	padding-right:0.5em;
 }
 
 table {
 	width:100%;
 	border-collapse:collapse;
-	border-top:1px solid $line-color;
 	caption {
-		font-style:italic;
+		padding:0.5em;
+		font-size:$font-small;
+		background-color:$screen-lt;
+		border-bottom:1px solid $line-color;
 	}
-	tr {
-		th, td {
-			padding:0.5em 1em 0.5em 0.5em;
-			border-bottom:1px solid $line-color;
-		}
-		th {
-			padding-top:1em;
-			text-align:left;
-			font-weight:$font-weight-bold;
-			background-color:#f2f2f2;
-		}
+	dl, address, .block {
+		margin:0;
+		clear:left;
 	}
+}
+th,
+td {
+	padding:1em 0.25em;
+	font-size:$font-small;
+	border-bottom:1px solid $line-color;
+}
+td {
+	vertical-align:top;
+}
+th {
+	text-align:left;
+	font-weight:$font-weight-bold;
+	vertical-align:middle;
+}
+table {
 	&.inline {
 		width:auto;
+	}
+	&.highlight tr:hover td {
+		background-color:$screen-lt;
+	}
+	&.text-center tr {
+		th, td {
+			text-align:center;
+		}
+	}
+	&.striped {
+		tr td {
+			background-color:$page-background;
+			border-bottom:0 none;
+		}
+		tr:nth-child(odd) td {
+			background-color:$screen-lt;
+		}
 	}
 }
 
 blockquote {
 	padding-left:$line-height;
-	margin-left:$line-height;
-	font-size:1.15em;
 	line-height:$line-height;
 	font-weight:$font-weight-light;
-	border-left:1px solid $line-color;
+	border-left:4px solid $line-color;
 	cite {
-		margin-top:($font-scale/2) + em;
-		margin-right:($font-scale*2) + em;
 		display:block;
-		text-align:right;
+		margin-top:($font-scale/2) + em;
+		color:$text-light;
 		&:before {
 			content:"– ";
+			display:inline-block;
+			padding-right:0.5em;
 		}
 	}
 }
@@ -128,8 +178,8 @@ blockquote {
 code, pre {
 	padding:0.2em;
 	font-size:$font-small;
-	background-color:$screen;
-	color:lighten($text-color, 20%);
+	background-color:$screen-dk;
+	color:contrasting-text($screen-dk);
 }
 pre {
 	padding:0.5em 0.8em;
@@ -139,6 +189,10 @@ pre {
 acronym, abbr {
 	border-bottom:1px dotted $text-light;
 	cursor:help;
+}
+
+address {
+	display:block;
 }
 
 figure {
@@ -219,11 +273,30 @@ figure.right {
 }
 .intro {
 	margin-bottom:$font-scale + rem;
-	font-size:1.8em;
+	font-size:$font-large;
 	font-weight:$font-weight-light;
 	line-height:$line-height;
 	font-style:italic;
 	color:$text-light;
+}
+
+// Link styles
+.more-link a,
+a.more-link {
+	display:inline-block;
+	padding:0.5em 1em;
+	color:$text-light;
+	text-decoration:none;
+	border:1px solid $line-color;
+	&:hover {
+		color:$text-color;
+		border-color:$heavy-line-color;
+	}
+	&:after {
+		content:"\00bb";
+		display:inline-block;
+		margin-left:0.25em;
+	}
 }
 
 // Text Alignment
@@ -238,4 +311,51 @@ figure.right {
 }
 .text-justify {
 	text-align:justify;
+}
+@media only screen and (min-width:$breakpoint-sm) {
+	.text-center-l {
+		text-align:center;
+	}
+	.text-left-l {
+		text-align:left;
+	}
+	.text-right-l {
+		text-align:right;
+	}
+}
+@media only screen and (max-width:$breakpoint-sm) {
+	.text-center-s {
+		text-align:center;
+	}
+	.text-left-s {
+		text-align:left;
+	}
+	.text-right-s {
+		text-align:right;
+	}
+}
+
+// Text floats
+.pull-right {
+	float:right;
+}
+.pull-left {
+	float:left;
+}
+
+// Other tweaks
+.margin {
+	margin-bottom:$line-height;
+}
+.margin-compress {
+	margin-bottom:0.5em;
+}
+.margin-collapse {
+	margin-bottom:0;
+}
+.hide {
+	display:none;
+}
+.accessible-hide {
+	@include accessible-hide();
 }

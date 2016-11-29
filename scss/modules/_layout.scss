@@ -9,6 +9,7 @@
 }
 @mixin resetColumn {
 	float:none;
+	padding:($grid-gutter/2)*0.75;
 	width:auto;
 }
 
@@ -48,9 +49,9 @@
 }
 
 // Large grid
-@media only screen and (min-width: $breakpoint-md) {
+@media only screen and (min-width: $breakpoint-lg) {
 	@for $i from 1 through $grid-columns {
-		.gl#{$i} {
+		.gxl#{$i} {
 			@include column(percentage($i/$grid-columns));
 		}
 	}
@@ -104,17 +105,44 @@
 
 
 // Mods
+.g-no-padding,
 .xp {
 	padding:0;
 }
+.g-pad,
 .p {
 	padding:($grid-gutter/2);
 }
+.g-centered,
 .gc {
 	clear:left;
 	float:none;
 	margin-left:auto;
 	margin-right:auto;
+}
+
+.border-top {
+	border-top:1px solid $line-color;
+}
+.border-bottom {
+	border-bottom:1px solid $line-color;
+}
+
+.g-border-right {
+	border-right:1px solid $line-color;
+}
+.g-border-left {
+	border-left:1px solid $line-color;
+}
+@media only screen and (max-width:$breakpoint-sm) {
+	.g-border-right {
+		border-right:0;
+		border-bottom:1px solid $line-color;
+	}
+	.g-border-left {
+		border-left:0;
+		border-top:1px solid $line-color;
+	}
 }
 
 // Non-grid layout
