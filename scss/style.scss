@@ -19,25 +19,53 @@ $font-family:sans-serif;
 $alt-font:$font-family; // this is for an alternative font
 $font-weight-light:300;
 $font-weight-normal:400;
-$font-weight-bold:600;
+$font-weight-bold:700;
 $font-scale:1.5;
 $line-height:$font-scale + em;
 
-// Colors
+// Background colors
 $page-background:#fff;
 $footer-background:#e6e6e6;
 
+// Text colors
 $text-color:#222;
 $text-light:#999;
 
-$accent:#3b81f7;
-$pop:#ff9966;
-$link-color:$accent;
-$link-hover:#000;
+// Design colors
+$accent: #0083ff;
+$pop: #94e864;
+$selection: fade-out($pop, 0.3);
+$link-color: change-color($accent, $lightness: 30%);
+$link-hover: #000;
 
+// Indicator colors
+$color-info: #1b77c5;
+$screen-info: change-color($color-info, $lightness:90%);
+$color-success: #1d9428;
+$screen-success: change-color($color-success, $lightness:90%);
+$color-warning: #d4ae2f;
+$screen-warning: change-color($color-warning, $lightness:90%);
+$color-danger: #c0343b;
+$screen-danger: change-color($color-danger, $lightness:90%);
+
+// Form colors
+$form-color-button: $link-color;
+$form-color-focus: $pop;
+
+// Line colors
 $line-color: #ddd;
-$heavy-line-color: #999;
+$line-color-dark: #999;
+
+// Radii
+$master-radius: 0;
+$form-radius: $master-radius;
+$button-radius: $form-radius;
+$box-radius: $master-radius;
+
+// Screens
 $screen: #e6e6e6;
+$screen-lt: #f2f2f2;
+$screen-dk: #444;
 
 // Mixins
 @import "modules/_mixins";
@@ -46,13 +74,13 @@ $screen: #e6e6e6;
 @import "modules/_core";
 
 // Layout
-// @import "modules/_layout";
+@import "modules/_layout";
 
 // Type
-// @import "modules/_type";
+@import "modules/_type";
 
 // Forms
-// @import "modules/_forms";
+@import "modules/_forms";
 
 // Animations
-// @import "modules/_animations";
+@import "modules/_animations";

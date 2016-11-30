@@ -1,4 +1,17 @@
-// All mixins all the time
+// STANDARD STYLINGS
+// Standard focus style for links et al
+@mixin focus() {
+	outline:none;
+	box-shadow:0 0 2px 1px $form-color-focus;
+}
+
+// functional shadow for items that are appearing over other items
+@mixin overshadow() {
+	box-shadow:0 0.5em 1em rgba(0,0,0,0.2);
+}
+
+// UTILITIES
+// this is to be included with :after for a clearfix
 @mixin clearfixed() {
 	content: " ";
 	display: block;
@@ -20,6 +33,7 @@
 	overflow:hidden;
 }
 
+// HELPER FUNCTION(S)
 @function contrasting-text($color) {
 	@if (lightness($color) > 60%) {
 		@return #000; // black for light backgrounds

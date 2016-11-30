@@ -8,6 +8,16 @@
 	margin:0 0 1em 0;
 }
 
+.form-action {
+	text-align: center;
+	padding-top:1em;
+	border-top:1px solid $line-color;
+	.button,
+	button {
+		margin:0 0.125em;
+	}
+}
+
 // basic fieldsets
 fieldset {
 	margin:0 0 $line-height 0;
@@ -27,46 +37,38 @@ legend {
 	left:-1.25em;
 	font-family:$alt-font;
 	font-weight:$font-weight-bold;
-	background-color:$screen;
+	background-color:$screen-lt;
 	box-sizing:content-box;
 	+ * {
 		margin-top:2.5em!important;
 	}
 }
 
-
 // standard labels, legends for checkbox and radio arrays
-label,
-.form-item fieldset legend,
-fieldset.select legend {
+label, .label {
 	display:block;
 	font-family:$alt-font;
 	font-weight:$font-weight-bold;
 }
 
-// grouped content for checkboxes
-.form-item fieldset,
-fieldset fieldset,
-fieldset.select {
-	margin:0;
-	padding:0;
-	border:0 none;
-	label {
-		display:block;
-		font-weight:$font-weight-normal;
-		cursor:pointer;
-	}
-	&.inline label {
-		display:inline;
-		margin-right:1em;
-	}
-}
-
 // standard input help
 .form-item .input-help,
 .form-item .help {
+	margin-top:-0.5em;
 	font-size:0.9em;
 	font-style:italic;
+}
+
+// Required indicator
+.required {
+	color:$color-danger;
+	font-size:$font-small;
+	font-weight:$font-weight-normal;
+}
+.form-item.form-required label:after {
+	content:'(Required)';
+	margin-left:0.5em;
+	@extend .required;
 }
 
 // Form elements
@@ -89,10 +91,14 @@ select {
 	font-size:1em;
 	font-family:$font-family;
 	padding:0.4em;
+	margin-bottom:0.5em;
+	background-color:#fff;
 	border:1px solid $line-color;
+	border-radius:$form-radius;
 	outline: none;
 	&:focus {
-		border-color: $heavy-line-color;
+		border-color:$line-color-dark;
+		@include focus();
 	}
 }
 
@@ -112,9 +118,17 @@ input[size] {
 	width:auto;
 }
 
-// Clean up selects
+// Clean up select boxes
 select {
-	border-radius:0;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none;
+	border-radius:$form-radius;
+	background-image:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjEwcHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDEwIDE2IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0MC4zICgzMzgzOSkgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+U2xpY2UgMTwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnIGlkPSJHcm91cC0zIiBmaWxsPSIjNkU2RTZGIj4KICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlRyaWFuZ2xlIiBwb2ludHM9IjUgMCAxMCA2IDAgNiI+PC9wb2x5Z29uPgogICAgICAgICAgICA8cG9seWdvbiBpZD0iVHJpYW5nbGUtQ29weSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNS4wMDAwMDAsIDEzLjAwMDAwMCkgc2NhbGUoMSwgLTEpIHRyYW5zbGF0ZSgtNS4wMDAwMDAsIC0xMy4wMDAwMDApICIgcG9pbnRzPSI1IDEwIDEwIDE2IDAgMTYiPjwvcG9seWdvbj4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==);
+	background-position:right 0.5em center;
+	background-repeat:no-repeat;
+	background-size:0.6em;
+	padding-right:1.75em;
 	min-width:12em;
 }
 
@@ -137,42 +151,56 @@ input[type=color] {
 	height:3em;
 }
 
+// Checkboxes, radios, etc
+.selectables,
+.radios,
+.checkboxes {
+	margin-bottom:0.75em;
+	label {
+		font-weight:normal;
+		cursor:pointer;
+	}
+	&.inline label {
+		display:inline;
+		margin-right:1em;
+	}
+}
+
 // Buttons
 //
-//
-button,
-a.button,
-input[type=submit],
-input[type=button],
-input[type=reset] {
+.button,
+button {
 	display:inline-block;
-	padding:0.5em 1em 0.4em;
+	padding:0.5em 1em;
+	margin:0 0.5em 0 0;
+	background:$form-color-button;
 	border:0 none;
-	background:$accent;
+	border-radius:$button-radius;
+	color:contrasting-text($form-color-button);
 	font-family:$alt-font;
-	font-weight:$font-weight-bold;
+	font-weight:$font-weight-normal;
 	font-size:1em;
 	line-height:1.5em;
-	color:#fff;
 	cursor:pointer;
-	box-shadow:0 0.15em 0.1em fade-out($text-color, 0.8);
-	@include transition(all);
 	&:hover {
-		// background-color:darken($accent, 7%);
-		box-shadow:0 0.25em 0.1em fade-out($text-color, 0.8);
-	}
-	&:active {
-		box-shadow:0 0 0.1em fade-out($text-color, 0.8);
+		background-color:darken($form-color-button, 7%);
 	}
 	&:focus {
-		outline:none;
+		@include focus();
 	}
 }
 button.reset,
-a.button.reset,
-input[type=reset] {
+.button.reset,
+[type=reset] {
 	background-color:$screen;
-	color:$accent;
+	color:$form-color-button;
+}
+button.submit,
+.button.submit,
+[type=submit] {
+	font-weight:$font-weight-bold;
+	padding-left:2em;
+	padding-right:2em;
 }
 
 a.button,
@@ -181,10 +209,6 @@ button {
 }
 
 // some classes for variations
-div.submit {
-	padding-top:1em;
-	border-top:1px solid $line-color;
-}
 input.narrow {
 	width:10em;
 }
@@ -206,5 +230,17 @@ input.full {
 	}
 	input.narrow {
 		width:45%;
+	}
+}
+
+// Form grid
+// Grids within forms work automatically. These styles just help with spacing.
+%gformspacing {
+	padding-top:0;
+	padding-bottom:0;
+}
+@for $i from 1 through $grid-columns {
+	.g#{$i} {
+		@extend %gformspacing;
 	}
 }
