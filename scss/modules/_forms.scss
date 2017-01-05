@@ -240,7 +240,10 @@ input.full {
 	padding-bottom:0;
 }
 @for $i from 1 through $grid-columns {
-	.g#{$i} {
-		@extend %gformspacing;
+	form .grid,
+	form .row {
+		.g#{$i} {
+			@extend %gformspacing;
+		}
 	}
 }
