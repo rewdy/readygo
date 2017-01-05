@@ -1,6 +1,22 @@
 module.exports = function(grunt) {
 
   grunt.initConfig({
+      browserSync: {
+        dev: {
+            bsFiles: {
+                src: [
+                    'css/*.css',
+                    'js/*.js',
+                    '**/*.html',
+                    '**/*.php'
+                ]
+            },
+            options: {
+                watchTask: true,
+                proxy: 'readygo.dev'
+            }
+        }
+    },
     sass: {
       dist: {
         options: {
@@ -31,10 +47,13 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['sass', 'postcss']);
+  grunt.registerTask('build', ['sass', 'postcss']);
+
+  grunt.registerTask('default', ['browserSync', 'watch']);
 
 }

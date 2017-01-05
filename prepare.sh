@@ -11,7 +11,7 @@ case ${answer:0:1} in
         rm prepare.sh
         echo -e '\nGrunting...\n-------'
         grunt
-        echo -e '\nDone. 🎉\n'
+        echo -e '\nDone. 🎉\n\nBefore running browser sync, be sure to update the proxy settings.\n'
     ;;
     * )
         echo 'Alright. Not doing anything...'
