@@ -76,6 +76,30 @@ $screen-dk: #444;
 // Layout
 @import "modules/_layout";
 
+// Navigation
+ul.menu {
+	li {
+		margin:0;
+		list-style:none;
+		a {
+			color:$text-color;
+			text-decoration:none;
+			&:hover {
+				color:$pop;
+			}
+		}
+	}
+}
+ul.menu-horizontal {
+	li {
+		display:inline;
+		a {
+			display:inline-block;
+			padding:0.5em 1em;
+		}
+	}
+}
+
 // Type
 @import "modules/_type";
 
