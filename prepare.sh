@@ -9,8 +9,6 @@ case ${answer:0:1} in
         echo -e '\nFinal cleanup: removing last files...\n-------'
         rm readme.md
         rm prepare.sh
-        echo -e '\nGrunting...\n-------'
-        grunt
         echo -e '\nDone. 🎉\n\nBefore running browser sync, be sure to update the proxy settings.\n'
     ;;
     * )
