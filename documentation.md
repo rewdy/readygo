@@ -26,7 +26,7 @@ ReadyGo has:
   * A `display:table` based system as well
   * Ability to center any grid column for single column layouts.
   * Classes for column rules (line between columns)
-  * Classes to manipulate padding for scenerios when you want the padding on the column and not.
+  * Classes to manipulate padding for scenerios when you want the padding on the content instead of the column.
 * `listed` class for using on blocks in a list
 * Clearfix class
 
