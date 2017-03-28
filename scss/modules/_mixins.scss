@@ -34,8 +34,13 @@
 }
 
 // HELPER FUNCTION(S)
+@function brightness($color) {
+	$sum: red($color) + green($color) + blue($color);
+	@return percentage($sum / (255*3));
+}
+
 @function contrasting-text($color) {
-	@if (lightness($color) > 60%) {
+	@if (brightness($color) > 60%) {
 		@return #000; // black for light backgrounds
 	} @else {
 		@return #fff; // white for darker backgrounds
